@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="JMH">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../libs/jmh-core.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../libs/jmh-generator-annprocess.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../libs/commons-math3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../libs/jopt-simple.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

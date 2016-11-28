@@ -13,6 +13,10 @@
 	<property name="testng" value="6.8.21"/>
 	<property name="jcommander" value="1.48"/>
 	<property name="kotlinc-build" value="1.1-M03"/>
+	<property name="jmh-core" value="1.17"/>
+	<property name="jmh-generator-annprocess" value="1.17"/>
+	<property name="jopt-simple" value="5.0.3"/>
+	<property name="commons-math3" value="3.6.1"/>
 	<!-- *********************************** -->
 
 	<target name="-dependencies-uptodate">
@@ -20,10 +24,7 @@
 		<local name="kotlinc-build-current"/>
 		<loadfile property="kotlinc-build-current" srcfile="${kotlinc}/build.txt" quiet="true" taskname="kotlinc"/>
 		<condition property="kotlinc-uptodate">
-			<and>
-				<isset property="kotlinc-build-current"/>
-				<equals arg1="${kotlinc-build-current}" arg2="${kotlinc-build}"/>
-			</and>
+			<equals arg1="${kotlinc-build-current}" arg2="${kotlinc-build}"/>
 		</condition>
 
 		<uptodate property="lib-uptodate" srcfile="update-dependencies.xml" targetfile="${lib}/touch.txt"/>
@@ -72,13 +73,21 @@
 	<target name="-lib-download" unless="lib-uptodate">
 		<update-mvn name="JCommander" group="com/beust" artifact="jcommander" version="${jcommander}" dest="${lib}"/>
 		<update-mvn name="TestNG" group="org/testng" artifact="testng" version="${testng}" dest="${lib}"/>
+		<update-mvn name="JMH Core" group="org/openjdk/jmh" artifact="jmh-core" version="${jmh-core}" dest="${lib}"/>
+		<update-mvn name="JMH Generators: Annotation Processing" group="org/openjdk/jmh" artifact="jmh-generator-annprocess" version="${jmh-generator-annprocess}" dest="${lib}"/>
+		<update-mvn name="JOpt Simple" group="net/sf/jopt-simple" artifact="jopt-simple" version="${jopt-simple}" dest="${lib}"/>
+		<update-mvn name="Apache Commons Math" group="org/apache/commons" artifact="commons-math3" version="${commons-math3}" dest="${lib}"/>
 
 		<touch file="${lib}/touch.txt" verbose="false"/>
 	</target>
 
 	<target name="clean" description="Deletes LWJGL dependencies">
-		<delete taskname="JCommander" file="${lib}/jcommander.jar"/>
-		<delete taskname="TestNG" file="${lib}/testng.jar"/>
+		<delete file="${lib}/jcommander.jar"/>
+		<delete file="${lib}/testng.jar"/>
+		<delete file="${lib}/jmh-core.jar"/>
+		<delete file="${lib}/jmh-generator-annprocess.jar"/>
+		<delete file="${lib}/jopt-simple"/>
+		<delete file="${lib}/commons-math3"/>
 	</target>
 
 </project>
