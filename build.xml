@@ -472,6 +472,7 @@
 
 			<!-- Benchmarks -->
 			<include name="org/lwjgl/jmh/**"/>
+			<exclude name="org/lwjgl/jmh/VarHandle*" unless:set="jdk9"/>
 		</lwjgl.javac>
 	</target>
 
