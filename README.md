@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/LWJGL-CI/lwjgl3.svg?branch=master-linux64)](https://travis-ci.org/LWJGL-CI/lwjgl3)
 [![Slack Status](https://slack.lwjgl.org/badge.svg)](https://slack.lwjgl.org/)
 
-## LWJGL - Lightweight Java Game Library 3
+## LWJGL - Lightweight Java Game Library 3 (excef fork)
 
 LWJGL(https://www.lwjgl.org) is a Java library that enables cross-platform
 access to popular native APIs useful in the development of graphics
